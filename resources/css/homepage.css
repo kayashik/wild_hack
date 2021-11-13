@@ -5,9 +5,17 @@ h1 {
     color: rgb(255, 255, 255);
     margin-left: 20px;
     font-size: 150px;
+    text-shadow: #c4c1c1 1px 0 2px;
 }
 a {
+    text-decoration: none;
     color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-shadow: #c4c1c1 1px 0 1px;
+}
+a:hover {
+    color: #d5d3d3;
 }
 
 .outer {

@@ -7,8 +7,7 @@ import (
 )
 
 type ViewData struct{
-	Title string
-	Message string
+	TeamName string
 	Url string
 }
 
@@ -21,8 +20,7 @@ func SayHello(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := ViewData{
-		Title: "Wild Hack",
-		Message: "Click here to get recommendations",
+		TeamName: "@akshakak",
 		Url: "http://localhost:8080/recommendations",
 	}
 
