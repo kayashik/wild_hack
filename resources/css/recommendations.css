@@ -1,0 +1,49 @@
+.homepage-title {
+    text-align: center;
+}
+h1 {
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    font-size: 150px;
+    text-shadow: #c4c1c1 1px 0 2px;
+}
+a {
+    text-decoration: none;
+    color: rgba(53, 2, 115, 0.51);
+    font-size: 1em;
+    text-transform: uppercase;
+    text-shadow: #c4c1c1 1px 0 1px;
+}
+a:hover {
+    color: #d5d3d3;
+}
+
+.outer {
+    height: 94vh;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    background-color: rgb(127, 2, 144);
+}
+.product-block {
+    display: inline-block;
+    background-color: rgb(248, 249, 250);
+    position: absolute;
+    width: 20%;
+    max-height: 50%;
+    top: 5%;
+    left: 2%;
+    border-radius: 5px;
+}
+
+.plot-block {
+    display: inline-block;
+    background-color: rgb(248, 249, 250);
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    top: 5%;
+    left: 30%;
+    border-radius: 5px;
+}

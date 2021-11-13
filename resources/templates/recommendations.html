@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../css/bootstrap_css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/recommendations.css">
+
+    <meta charset="UTF-8">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="../img/wb.jpg" width="30" height="30" style="border-radius: 5%; margin-left: 20%" class="d-inline-block align-top" alt="">
+            wild hack
+        </a>
+    </nav>
+    <div class="outer">
+        <div class="product-block">
+            <table class="table">
+                <tbody>
+                {{ with .ProductList }}
+                    {{ range . }}
+                        <tr>
+                            <td><a href="#">{{ .Name }}</a></td>
+                        </tr>
+                    {{ end }}
+                {{ end }}
+                </tbody>
+            </table>
+        </div>
+        <div class="plot-block"></div>
+    </div>
+</body>
+</html>
