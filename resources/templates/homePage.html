@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="../css/bootstrap_css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/homepage.css">
+
     <meta charset="UTF-8">
-    <h1>{{ .Title }}</h1>
-    <a href='{{ .Url }}'>{{ .Message }}</a>
 </head>
 <body>
-
+    <div class="outer">
+        <div class="inner">
+            <h1 class="homepage-title">{{ .Title }}</h1>
+            <a href='{{ .Url }}'>{{ .Message }}</a>
+        </div>
+    </div>
 </body>
 </html>
