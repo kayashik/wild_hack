@@ -27,7 +27,22 @@
                 </tbody>
             </table>
         </div>
-        <div class="plot-block"></div>
+        <div class="plot-block" style="background-image: url('../img/plot-1.png')"></div>
+        <div class="recommendation-table-block">
+            <table class="table">
+                <tbody>
+                {{ with .RecommendationsList }}
+                {{ range . }}
+                <tr>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .Result }}</td>
+                    <td>{{ .Recommendation }}</td>
+                </tr>
+                {{ end }}
+                {{ end }}
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
