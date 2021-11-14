@@ -19,26 +19,41 @@
                 <tbody>
                 {{ with .ProductList }}
                     {{ range . }}
-                        <tr>
-                            <td><a href="#">{{ .Name }}</a></td>
-                        </tr>
+                        {{ if eq .ID 1 }}
+                            <tr>
+                                <td><a href="/recommendations?id={{ .ID }}" style="color: blueviolet">{{ .Name }}</a></td>
+                            </tr>
+                        {{ else }}
+                            <tr>
+                                <td><a href="/recommendations?id={{ .ID }}">{{ .Name }}</a></td>
+                            </tr>
+                        {{ end }}
                     {{ end }}
                 {{ end }}
                 </tbody>
             </table>
         </div>
-        <div class="plot-block" style="background-image: url('../img/plot-1.png')"></div>
+        <div class="plot-block" style="background-image: url({{ .PlotImageURL }})"></div>
         <div class="recommendation-table-block">
             <table class="table">
+                <thead>
+                <tr>
+                    <td>Показатель</td>
+                    <td>Ср. Значение за 7 дней</td>
+                    <td>В сравнении с другими</td>
+                    <td>Рекомендации</td>
+                </tr>
+                </thead>
                 <tbody>
                 {{ with .RecommendationsList }}
-                {{ range . }}
-                <tr>
-                    <td>{{ .Name }}</td>
-                    <td>{{ .Result }}</td>
-                    <td>{{ .Recommendation }}</td>
-                </tr>
-                {{ end }}
+                    {{ range . }}
+                    <tr>
+                        <td>{{ .Name }}</td>
+                        <td>{{ .Result }}</td>
+                        <td>{{ .Compare }}</td>
+                        <td>{{ .Recommendation }}</td>
+                    </tr>
+                    {{ end }}
                 {{ end }}
                 </tbody>
             </table>
