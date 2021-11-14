@@ -41,15 +41,25 @@ func Recommendations(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Recommendations: "+err.Error(), err)
 	}
-	products := []Product{{Name: "product 1", ID: 1}, {Name: "product 2", ID: 2}, {Name: "product 3", ID: 3}}
-	recommendations := []Recommendation{
-		{Name: "конверсия", Result: "+20%", Compare: "Вы в топ 15 продавцов на сайте", Recommendation: "Продолжайте в том же духе"},
-		{Name: "цена", Result: "топ 15% самых дорогих товаров", Compare: "Вы в топ 15 продавцов на сайте",  Recommendation: "Пополните склад"},
+	products := []Product{{Name: "02C451A73FDD41CDD05F1E33E4BC60FC", ID: 1}, {Name: "3AD6487EBF165BDE4EECE355B64A80A8", ID: 2}, {Name: "FC7C2D6A3572340064B2B06935AC200C", ID: 3}}
+	recommendations := map [int64] []Recommendation{
+		1: {
+			{Name: "конверсия", Result: "+2%", Compare: "Конверсия ниже, чем у 85% аналогичных товаров у других продавцов", Recommendation: "Рекомендуем пересмотреть цену"},
+			{Name: "цена", Result: "1744", Compare: "на 3% выше средней в сравнении а аналогичными товарами",  Recommendation: "Рекомендуем сделать скидку"},
+		},
+		2: {
+			{Name: "конверсия", Result: "9,75%", Compare: "Продукт входит в топ-15% по уровню конверсии", Recommendation: "Продолжайте в том же духе"},
+			{Name: "цена", Result: "466", Compare: "на 2% выше среднейв сравнении с аналогичными товарами",  Recommendation: "Для увеличения продаж рекомендуется проводить акции"},
+		},
+		3: {
+			{Name: "конверсия", Result: "+7%", Compare: "Продукт входит в топ-15% по уровню конверсии", Recommendation: "Продолжайте в том же духе"},
+			{Name: "цена", Result: "1933", Compare: "на 2,4% выше среднейв сравнении с аналогичными товарами",  Recommendation: "Рекомендуем сделать скидку"},
+		},
 	}
 
 	data := RecommendationsData{
 		ProductList: products,
-		RecommendationsList: recommendations,
+		RecommendationsList: recommendations[productID],
 		ProductID: productID,
 		PlotImageURL: fmt.Sprintf("../img/plot-%d.png", productID),
 	}
