@@ -1,13 +1,19 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
+	"github.com/labstack/echo/v4"
 	"wild_hack/controllers"
 )
 
 func main() {
+	e := echo.New();
+	if e == nil {
+		fmt.Sprintf("Съешь какашку")
+	}
 	http.HandleFunc("/", controllers.SayHello)                            // Устанавливаем роутер
 	http.HandleFunc("/recommendations/", controllers.Recommendations) // Устанавливаем роутер
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./resources/css"))))

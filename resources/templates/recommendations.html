@@ -8,18 +8,25 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/">
-            <img src="../img/wb.jpg" width="30" height="30" style="border-radius: 5%; margin-left: 20%" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="/" style="margin-left: 8.33333333%">
+            <img src="../img/wb.jpg" width="30" height="30" style="border-radius: 5%" class="d-inline-block align-top" alt="">
             wild hack
         </a>
     </nav>
-    <div class="outer">
-        <div class="product-block">
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="product-block col-md-2 top-buffer">
             <table class="table">
+                <thead>
+                <tr>
+                    <td>Продукт</td>
+                </tr>
+                </thead>
                 <tbody>
                 {{ with .ProductList }}
                     {{ range . }}
-                        {{ if eq .ID 1 }}
+                        {{ if .IsSelected }}
                             <tr>
                                 <td><a href="/recommendations?id={{ .ID }}" style="color: blueviolet">{{ .Name }}</a></td>
                             </tr>
@@ -33,27 +40,38 @@
                 </tbody>
             </table>
         </div>
-        <div class="plot-block" style="background-image: url({{ .PlotImageURL }})"></div>
-        <div class="recommendation-table-block">
+        <div class="col-md-1"></div>
+        <div class="plot-block col-md-4 top-buffer" style="background-image: url({{ .PlotImageURL }})"></div>
+        <div class="col-md-1"></div>
+        <div class="plot-recommendation-block col-md-2 top-buffer">
+            <table class="table">
+                <thead><tr><td>Рекомендация</td></tr></thead>
+                <tbody><tr><td>{{ .PlotRecommendation }}</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-md-4"></div>
+        <div class="recommendation-table-block col-md-7">
             <table class="table">
                 <thead>
                 <tr>
                     <td>Показатель</td>
-                    <td>Ср. Значение за 7 дней</td>
+                    <td>Ср. показатель за неделю</td>
                     <td>В сравнении с другими</td>
                     <td>Рекомендации</td>
                 </tr>
                 </thead>
                 <tbody>
                 {{ with .RecommendationsList }}
-                    {{ range . }}
-                    <tr>
-                        <td>{{ .Name }}</td>
-                        <td>{{ .Result }}</td>
-                        <td>{{ .Compare }}</td>
-                        <td>{{ .Recommendation }}</td>
-                    </tr>
-                    {{ end }}
+                {{ range . }}
+                <tr>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .Result }}</td>
+                    <td>{{ .Compare }}</td>
+                    <td>{{ .Recommendation }}</td>
+                </tr>
+                {{ end }}
                 {{ end }}
                 </tbody>
             </table>

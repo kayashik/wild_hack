@@ -21,7 +21,7 @@ func SayHello(w http.ResponseWriter, r *http.Request) {
 
 	data := ViewData{
 		TeamName: "@akshakak",
-		Url: "http://localhost:8080/recommendations",
+		Url: "/recommendations",
 	}
 
 	tplErr := tmpl.Execute(w, data)
