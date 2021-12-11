@@ -27,3 +27,8 @@ wildberries hackathon result
 ```bash
 docker run --name kakash_postgres -e POSTGRES_USER=test -e POSTGRES_PASSWORD=test -e POSTGRES_DB=akshakak -d -p 54320:5432 postgres
 ```
+
+Открыть базу на компе
+```bash
+dpsql -h localhost -p 54320 -d akshakak -U test
+```
