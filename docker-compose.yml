@@ -12,4 +12,4 @@ services:
       POSTGRES_USER: test
       POSTGRES_DB: akshakak
     ports:
-      - "5432:5432"
+      - "54320:5432"
