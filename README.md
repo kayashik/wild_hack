@@ -25,5 +25,5 @@ wildberries hackathon result
 
 Запустить postgres в докере
 ```bash
-docker run --name kakash_postgres -e POSTGRES_PASSWORD=test -d -p 5432:5432 postgres
+docker run --name kakash_postgres -e POSTGRES_USER=test -e POSTGRES_PASSWORD=test -e POSTGRES_DB=akshakak -d -p 54320:5432 postgres
 ```

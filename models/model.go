@@ -5,7 +5,7 @@ import "database/sql"
 func Init() error {
 	var err error
 
-	db, err := sql.Open("postgres", "postgres://test:test@localhost:5432/akshakak")
+	db, err := sql.Open("postgres", "postgres://postgres:test@localhost:5432/akshakak?sslmode=disable")
 	if err != nil {
 		return err
 	}
